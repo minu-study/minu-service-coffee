@@ -23,6 +23,11 @@ spring:
       max-request-size: 100MB
       max-file-size: 100MB
 
+common:
+  encrypt:
+    key: "{{암복호화키}}"
+    salt: "{{암호화키}}"
+
 logging:
   level:
     com:
