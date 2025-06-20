@@ -15,7 +15,7 @@ import java.util.TimeZone;
 
 @Slf4j
 @SpringBootApplication
-@ComponentScan({"minu.*"})
+@ComponentScan({"coffee.*"})
 public class CoffeeApplication {
 
     public static void main(String[] args) {
