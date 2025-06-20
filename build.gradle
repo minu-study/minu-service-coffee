@@ -1,6 +1,10 @@
 
 
 dependencies {
+
+    implementation project(':minu-domain-coffee')
+    implementation project(':minu-core-coffee')
+
     implementation 'org.junit.jupiter:junit-jupiter:5.12.2'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-log4j2:3.5.0'
@@ -9,7 +13,10 @@ dependencies {
     runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
     implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
 
-    testImplementation 'org.springframework.boot:spring-boot-starter-test:3.5.0'
+    testImplementation('org.springframework.boot:spring-boot-starter-test:3.5.0') {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+        exclude group: 'ch.qos.logback'
+    }
     testImplementation 'org.springframework.security:spring-security-test:6.4.5'
 
 
