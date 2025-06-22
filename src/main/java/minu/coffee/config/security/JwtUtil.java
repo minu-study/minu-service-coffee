@@ -5,6 +5,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.lang.Classes;
 import io.jsonwebtoken.security.Keys;
+import minu.coffee.common.model.TokenInfo;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -12,12 +13,16 @@ import java.util.Date;
 @Component
 public class JwtUtil {
     private static final String SECRET_KEY = "coffee-shop-secret-key";
-    private static final long EXPIRATION_MS = 1000 * 60 * 60 * 24; // 24시간
-    public static final String TEST_TOKEN = "test-token";
+//    private static final long EXPIRATION_MS = 1000 * 60 * 60 * 24; // 24시간
+    private static final long EXPIRATION_MS = 1000 * 60 * 60; // 1시간
+    public static final String TEST_TOKEN = "test-token-minu";
 
-    public String generateToken(String username) {
+    public String generateToken(TokenInfo tokenInfo) {
         return Jwts.builder()
-                .setSubject(username)
+                .setSubject(tokenInfo.getMemberId())
+                .claim("userId", tokenInfo.getId())
+                .claim("shopId", tokenInfo.getShopInfoId())
+                .claim("isAdmin", tokenInfo.getIsAdmin())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_MS))
                 .signWith(Keys.hmacShaKeyFor(SECRET_KEY.getBytes()), SignatureAlgorithm.HS256)
