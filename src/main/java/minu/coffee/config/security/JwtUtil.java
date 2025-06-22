@@ -12,7 +12,7 @@ import java.util.Date;
 
 @Component
 public class JwtUtil {
-    private static final String SECRET_KEY = "coffee-shop-secret-key";
+    private static final String SECRET_KEY = "abcdefghijklmnopqrstuvwxyzABCDEFG";
 //    private static final long EXPIRATION_MS = 1000 * 60 * 60 * 24; // 24시간
     private static final long EXPIRATION_MS = 1000 * 60 * 60; // 1시간
     public static final String TEST_TOKEN = "test-token-minu";
