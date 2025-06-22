@@ -63,7 +63,7 @@ public class AuthService {
         return memberInfoRepo.save(member);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public LoginDto.Login.Response login(LoginDto.Login.Request param) {
 
         try {
