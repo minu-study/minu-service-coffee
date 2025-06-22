@@ -22,6 +22,31 @@ spring:
       enabled: true
       max-request-size: 100MB
       max-file-size: 100MB
+  datasource:
+    core:
+      master:
+        hikari:
+          driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+          jdbc-url: {jdbc url}
+          username: {username}
+          password: '{password}'
+          maximum-pool-size: 5 # 최대 커넥션 풀 크기
+          minimum-idle: 2 # 최소 유휴 커넥션 수
+          idle-timeout: 300000 # 유휴 커넥션 유지 시간: 5분
+          connection-timeout: 30000 # 커넥션 요청 대기시간: 30초
+          max-lifetime: 1800000 # 커넥션 최대 수명: 30분
+      slave:
+        hikari:
+          driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+          jdbc-url: {jdbc url}
+          username: {username}
+          password: '{password}'
+          maximum-pool-size: 5 # 최대 커넥션 풀 크기
+          minimum-idle: 2 # 최소 유휴 커넥션 수
+          idle-timeout: 300000 # 유휴 커넥션 유지 시간: 5분
+          connection-timeout: 30000 # 커넥션 요청 대기시간: 30초
+          max-lifetime: 1800000 # 커넥션 최대 수명: 30분
+
 
 common:
   encrypt:
