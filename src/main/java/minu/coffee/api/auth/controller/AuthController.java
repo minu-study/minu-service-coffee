@@ -22,14 +22,14 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<ApiResponse> register(@RequestBody @Valid LoginDto.Register.Request param) {
         authService.register(param);
-        return CommonUtil.ConvertResponse();
+        return CommonUtil.convertResponse();
     }
 
     @PostMapping("/login")
     public ResponseEntity<ApiResponse> login(@RequestBody LoginDto.Login.Request param) {
 
         LoginDto.Login.Response response = authService.login(param);
-        return CommonUtil.ConvertResponse(response);
+        return CommonUtil.convertResponse(response);
 
     }
 }

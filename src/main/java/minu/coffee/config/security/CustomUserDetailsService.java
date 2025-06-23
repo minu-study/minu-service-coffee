@@ -2,17 +2,15 @@ package minu.coffee.config.security;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import minu.coffee.common.filter.Exception.AppException;
-import minu.coffee.common.filter.Exception.ErrorCode;
+import minu.coffee.common.filter.exception.AppException;
+import minu.coffee.common.filter.exception.ErrorCode;
 import minu.coffee.common.model.TokenInfo;
 import minu.coffee.common.model.TokenMember;
 import minu.coffee.memberInfo.model.MemberInfo;
 import minu.coffee.memberInfo.repository.MemberInfoRepo;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service

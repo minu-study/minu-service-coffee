@@ -20,7 +20,7 @@ public class ProductController {
     @GetMapping("/list")
     public ResponseEntity<ApiResponse> getList() {
         ProductDto.GetProducts.Response response = productService.getProducts();
-        return CommonUtil.ConvertResponse(response);
+        return CommonUtil.convertResponse(response);
     }
 
 }
