@@ -3,7 +3,7 @@ package minu.coffee.config.security;
 import io.jsonwebtoken.JwtParserBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.lang.Classes;
+// Line removed as it is unused
 import io.jsonwebtoken.security.Keys;
 import minu.coffee.common.model.TokenInfo;
 import org.springframework.stereotype.Component;
