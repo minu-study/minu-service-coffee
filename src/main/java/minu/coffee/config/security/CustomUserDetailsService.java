@@ -2,8 +2,9 @@ package minu.coffee.config.security;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import minu.coffee.common.filter.exception.AppException;
-import minu.coffee.common.filter.exception.ErrorCode;
+
+import minu.coffee.common.filter.customException.AppException;
+import minu.coffee.common.filter.customException.ErrorCode;
 import minu.coffee.common.model.TokenInfo;
 import minu.coffee.common.model.TokenMember;
 import minu.coffee.memberInfo.model.MemberInfo;

@@ -18,6 +18,6 @@ public class EncryptorConfig {
     public void init() {
         EncUtil.setEncryptKey(encryptKey);
         EncUtil.setEncryptSalt(encryptSalt);
-        EncUtil.ResetEncryptor();
+        EncUtil.resetEncryptor();
     }
 }
