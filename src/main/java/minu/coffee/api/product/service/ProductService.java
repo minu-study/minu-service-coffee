@@ -20,12 +20,12 @@ public class ProductService {
     private final ProductQueryRepository productQueryRepository;
 
     @Transactional(readOnly = true)
-    public ProductDto.GetProducts.Response getProducts() {
+    public ProductDto.GetProducts.Response getProducts(ProductDto.GetProducts.Request param) {
 
         TokenInfo tokenInfo = CommonUtil.getTokenInfo();
 
         List<ProductDto.ProductSummaryView> productSummaryViewList
-                = productQueryRepository.getProductSummaryView(tokenInfo.getShopInfoId(), LocalDateTime.now());
+                = productQueryRepository.getProductSummaryView(tokenInfo.getShopInfoId(), LocalDateTime.now(), param.getSubcategoryId());
 
         return ProductDto.GetProducts.Response.builder()
                 .list(productSummaryViewList)
