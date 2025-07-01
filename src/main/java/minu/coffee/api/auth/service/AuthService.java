@@ -3,8 +3,8 @@ package minu.coffee.api.auth.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import minu.coffee.auth.dto.LoginDto;
-import minu.coffee.common.filter.Exception.AppException;
-import minu.coffee.common.filter.Exception.ErrorCode;
+import minu.coffee.common.filter.customException.AppException;
+import minu.coffee.common.filter.customException.ErrorCode;
 import minu.coffee.common.model.TokenMember;
 import minu.coffee.config.security.JwtUtil;
 import minu.coffee.memberInfo.model.MemberInfo;
@@ -17,8 +17,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
