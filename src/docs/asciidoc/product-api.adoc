@@ -1,0 +1,33 @@
+:snippets: build/generated-snippets
+
+= COFFEE-ORDER-SYSTEM API - PRODUCT
+:toc: left
+:toclevels: 4
+:sectlinks:
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+
+== link:/api-docs[돌아가기]
+
+== PRODUCT
+
+=== 상품 목록 조회 - GET /api/product/list
+ 서브 카테고리에 따라 상품 목록을 조회합니다.
+
+:get_products: product-controller-test/get-products
+
+.Http Request
+include::{snippets}/{get_products}/http-request.adoc[]
+
+.Http Response
+include::{snippets}/{get_products}/http-response.adoc[]
+
+.Request Headers
+include::{snippets}/{get_products}/request-headers.adoc[]
+
+.Query Parameter
+include::{snippets}/{get_products}/query-parameters.adoc[]
+
+.Response Fields
+include::{snippets}/{get_products}/response-fields.adoc[]
