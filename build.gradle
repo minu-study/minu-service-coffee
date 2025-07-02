@@ -1,7 +1,11 @@
 
 plugins {
     id "org.asciidoctor.jvm.convert" version "3.3.2"
+    id 'com.epages.restdocs-api-spec' version '0.19.4'
+
 }
+
+apply plugin: 'com.epages.restdocs-api-spec'
 
 configurations {
     asciidoctorExt
@@ -22,6 +26,8 @@ dependencies {
 
     asciidoctorExt "org.springframework.restdocs:spring-restdocs-asciidoctor:3.0.0"
     testImplementation "org.springframework.restdocs:spring-restdocs-mockmvc:3.0.3"
+    testImplementation 'com.epages:restdocs-api-spec-mockmvc:0.19.4'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.9'
 
     testImplementation('org.springframework.boot:spring-boot-starter-test:3.5.0') {
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
@@ -70,6 +76,23 @@ task copyDocument(type: Copy) {
     into file("src/main/resources/static/docs")
 }
 
+openapi3 {
+    server = 'http://localhost:9090'
+    title = 'Spring RestDocs to Redoc'
+    description = 'Spring RestDocs를 Redoc문서로 변환한다.'
+    version = '0.0.1'
+    format = 'yaml'
+    copy {
+        from "build/api-spec/openapi3.yaml"
+        into "src/main/resources/static/docs"
+    }
+}
+
+afterEvaluate {
+    tasks.named('build') {
+        dependsOn tasks.named('openapi3')
+    }
+}
 
 build {
     dependsOn copyDocument
