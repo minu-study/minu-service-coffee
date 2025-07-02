@@ -54,7 +54,7 @@ public class ProductControllerTest extends RestDocsTestSupportBase {
                                         fieldWithPath("data.list[].price").type(JsonFieldType.NUMBER).description("상품 가격"),
                                         fieldWithPath("data.list[].paymentType").type(JsonFieldType.STRING).description("결제 타입")
                                 )
-                                .and(responseFields(getMetaDataResponseFields()))
+                                .and(getMetaDataResponseFields())
 
                         )
         );
