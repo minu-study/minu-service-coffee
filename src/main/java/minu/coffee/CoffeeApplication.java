@@ -15,14 +15,12 @@ import java.util.TimeZone;
 
 @Slf4j
 @SpringBootApplication
-@ComponentScan({"minu.*"})
+@ComponentScan("minu")
 public class CoffeeApplication {
 
     public static void main(String[] args) {
-        log.info("ConciergeApplication Service Start args : {}", Arrays.stream(args).toList());
+        log.info("CoffeeApplication Service Start args : {}", Arrays.toString(args));
         ApplicationContext ctx = SpringApplication.run(CoffeeApplication.class, args);
-        DispatcherServlet dispatcherServlet = (DispatcherServlet) ctx.getBean("dispatcherServlet");
-        dispatcherServlet.setThrowExceptionIfNoHandlerFound(true);
 
     }
 

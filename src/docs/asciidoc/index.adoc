@@ -1,0 +1,74 @@
+:snippets: build/generated-snippets
+
+= SS-CORE-ADMIN API
+:toc: left
+:toclevels: 4
+:sectlinks:
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+
+
+ 커피 주문 시스템에서 사용되는 API 가이드 문서입니다.
+
+
+= 안내
+
+[[overview-http-verbs]]
+== HTTP 동사
+본 REST API에서 사용하는 HTTP 동사는 가능한한 표준 REST 규약을 따릅니다.
+
+
+[[overview-http-status-codes]]
+== HTTP 상태 코드
+본 REST API에서 사용하는 HTTP 상태 코드는 가능한한 표준 HTTP와 REST 규약을 따릅니다.
+
+|===
+| 상태 코드 | 비고
+
+| `200 OK`
+| 요청을 성공적으로 처리함
+
+| `400 Bad Request`
+| 잘못된 요청을 보낸 경우. 응답 본문에 더 오류에 대한 정보가 담겨있다.
+
+| `401 Unauthorized`
+| 요청사항이 서버에 들어있는 권한과 비교했을 때 맞지 않을 경우 발생함.
+
+| `404 Not Found`
+| 요청한 리소스가 없음.
+
+| `405 Method Not Allowed`
+| 해당 자원의 이용이 허용되지 않았을 경우에 발생함.
+
+| `500 Internal Server Error`
+| 서버가 요청사항을 수행할 수 없을 경우에 발생함.
+
+| `502 	 Bad gateway`
+| 게이트웨이 상태가 나쁘거나 서버의 과부하 상태일 때 발생함.
+
+| `503 Service Unavailable`
+| 서버가 요청사항을 수행할 수 없을 경우에 발생함.
+|===
+
+
+
+[[overview-server-host]]
+== API 서버 주소
+|===
+| 구분 | Host
+
+| `개발`
+| 미정
+
+| `운영`
+| 미정
+|===
+
+
+
+= API 목록
+== Product
+=== link:/api-docs/product-api.html[View]
+List::
+* 상품 목록 조회 - GET /api/product/list
