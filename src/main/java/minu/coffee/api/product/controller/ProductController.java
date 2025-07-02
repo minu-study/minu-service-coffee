@@ -19,6 +19,7 @@ public class ProductController {
 
     @GetMapping("/list")
     public ResponseEntity<ApiResponse> getList(ProductDto.GetProducts.Request param) {
+        log.info("ProductController.getList() param : {}", param);
         ProductDto.GetProducts.Response response = productService.getProducts(param);
         return CommonUtil.convertResponse(response);
     }
