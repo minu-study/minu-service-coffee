@@ -88,15 +88,16 @@ public class RestDocsFieldItem {
 
     public List<RestDocsFieldItem> toFlatList(String superPath) {
         List<RestDocsFieldItem> list = new ArrayList<>();
+        String combinedPath = this.path;
         if (superPath != null && !"".equals(superPath)) {
-            this.path = superPath + "." + this.path;
+            combinedPath = superPath + "." + this.path;
         }
         if (this.type != null || this.children == null || this.children.size() < 1) {
-            list.add(this);
+            list.add(new RestDocsFieldItem(combinedPath, this.type, this.desc, this.state, this.children));
         }
 
         for (RestDocsFieldItem child : children) {
-            list.addAll(child.toFlatList(this.path)); // 재귀
+            list.addAll(child.toFlatList(combinedPath)); // 재귀
         }
         return list;
     }
